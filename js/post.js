@@ -1,7 +1,12 @@
-function displayPost(){
-    fetch("https://jsonplaceholder.typicode.com/posts")
-    .then( res => res.json())
-    .then( data => ShowDisplay(data))
+async function displayPost(){
+    const url = `https://jsonplaceholder.typicode.com/posts`
+    // fetch(url)
+    // .then( res => res.json())
+    // .then( data => ShowDisplay(data))
+
+    const res = await fetch(url)
+    const data = await res.json()
+    ShowDisplay(data)
 }
 
 function ShowDisplay(Posts){
@@ -21,3 +26,5 @@ function ShowDisplay(Posts){
     }
 }
 displayPost()
+
+console.log('done')
